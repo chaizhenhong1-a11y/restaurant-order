@@ -1,0 +1,764 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  color: #1d1b18;
+  background: #f4f2ed;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 20px 15px;
+  color: #f6f2ea;
+  background: #171713;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 4px 22px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: #181714;
+  background: #f1ece4;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.brand span,
+.brand strong {
+  display: block;
+}
+
+.brand span {
+  color: #d86b3c;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.52rem;
+  font-weight: 850;
+}
+
+.brand strong {
+  margin-top: 3px;
+  font-size: 0.75rem;
+}
+
+.nav {
+  display: grid;
+  gap: 5px;
+}
+
+.navItem {
+  padding: 10px 11px;
+  border-radius: 10px;
+  color: #98948c;
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 750;
+}
+
+.navItem:hover,
+.navItemActive {
+  color: #fff;
+  background: #292721;
+}
+
+.content {
+  min-width: 0;
+  padding: 28px;
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 5px;
+  color: #d46334;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-size: 0.57rem;
+  font-weight: 850;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.05em;
+}
+
+.topbar > div:first-child > p:last-child {
+  margin: 8px 0 0;
+  color: #7f786e;
+  font-size: 0.73rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.actions button,
+.primaryButton {
+  padding: 9px 12px;
+  border: 1px solid #ded8ce;
+  border-radius: 11px;
+  color: #2a2823;
+  background: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.primaryButton {
+  border-color: #1d1c18 !important;
+  color: #fff !important;
+  background: #1d1c18 !important;
+}
+
+.demoBadge {
+  padding: 6px 8px;
+  border: 1px solid #e5bd86;
+  border-radius: 999px;
+  color: #93611e;
+  background: #fff5e6;
+  font-size: 0.56rem;
+  font-weight: 800;
+}
+
+.toolbar {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.search {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 13px;
+  border: 1px solid #e1dbd1;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 0.72rem;
+}
+
+.categories {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.categories button {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border: 1px solid #dfd9cf;
+  border-radius: 999px;
+  color: #6b655d;
+  background: #fff;
+  font-size: 0.63rem;
+  font-weight: 750;
+}
+
+.categories button span {
+  min-width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: #8b857c;
+  background: #f2eee8;
+  font-size: 0.55rem;
+}
+
+.categories .categoryActive {
+  border-color: #1d1c18;
+  color: #fff;
+  background: #1d1c18;
+}
+
+.categories .categoryActive span {
+  color: #1d1c18;
+  background: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e2dcd2;
+  border-radius: 19px;
+  background: #fff;
+}
+
+.image {
+  position: relative;
+  height: 180px;
+  background-color: #e9e3da;
+  background-position: center;
+  background-size: cover;
+}
+
+.imageBadges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.imageBadges span,
+.imageBadges em {
+  padding: 6px 8px;
+  border-radius: 999px;
+  font-size: 0.54rem;
+  font-style: normal;
+  font-weight: 850;
+}
+
+.imageBadges span {
+  color: #fff;
+  background: #dd6634;
+}
+
+.imageBadges em {
+  color: #fff;
+  background: rgba(30, 29, 26, 0.88);
+}
+
+.cardBody {
+  padding: 14px;
+}
+
+.cardHeading {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.cardHeading span {
+  color: #cb6134;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.5rem;
+  font-weight: 850;
+}
+
+.cardHeading h2 {
+  margin: 3px 0 0;
+  font-size: 0.86rem;
+}
+
+.cardHeading > strong {
+  flex: 0 0 auto;
+  font-size: 0.76rem;
+}
+
+.cardBody > p {
+  min-height: 36px;
+  margin: 7px 0 0;
+  color: #8b847a;
+  font-size: 0.62rem;
+  line-height: 1.45;
+}
+
+.optionSummary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.optionSummary span,
+.optionSummary em {
+  font-size: 0.54rem;
+}
+
+.optionSummary span {
+  color: #928b81;
+}
+
+.optionSummary em {
+  padding: 5px 7px;
+  border-radius: 999px;
+  color: #69635b;
+  background: #f1ede7;
+  font-style: normal;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 13px;
+  padding-top: 12px;
+  border-top: 1px solid #eee8df;
+}
+
+.quickToggles {
+  display: flex;
+  gap: 6px;
+}
+
+.quickToggles button,
+.editButton {
+  padding: 7px 9px;
+  border: 1px solid #ded8ce;
+  border-radius: 9px;
+  color: #716a61;
+  background: #fff;
+  font-size: 0.56rem;
+  font-weight: 800;
+}
+
+.quickToggles button[data-active="true"] {
+  border-color: #cfe3d3;
+  color: #2f7747;
+  background: #edf8ef;
+}
+
+.editButton {
+  color: #fff;
+  background: #1e1c18;
+  border-color: #1e1c18;
+}
+
+.editorBackdrop,
+.categoryBackdrop {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  background: rgba(16, 15, 13, 0.44);
+  backdrop-filter: blur(4px);
+}
+
+.editorBackdrop {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editor {
+  width: min(100%, 560px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fbfaf7;
+  box-shadow: -18px 0 50px rgba(0,0,0,.16);
+}
+
+.editorHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px;
+  border-bottom: 1px solid #e4ded4;
+}
+
+.editorHeader span {
+  color: #cf6335;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.53rem;
+  font-weight: 850;
+}
+
+.editorHeader h2 {
+  margin: 3px 0 0;
+  font-size: 1rem;
+}
+
+.editorHeader button {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: #eee9e2;
+  font-size: 1.2rem;
+}
+
+.editorBody {
+  display: grid;
+  gap: 13px;
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.editorBody > label,
+.twoColumns label {
+  display: grid;
+  gap: 6px;
+}
+
+.editorBody label > span,
+.twoColumns label > span {
+  color: #676159;
+  font-size: 0.61rem;
+  font-weight: 800;
+}
+
+.editorBody input,
+.editorBody textarea,
+.editorBody select {
+  width: 100%;
+  border: 1px solid #dfd9cf;
+  border-radius: 11px;
+  outline: 0;
+  color: #292721;
+  background: #fff;
+  font: inherit;
+  font-size: 0.68rem;
+}
+
+.editorBody input,
+.editorBody select {
+  height: 42px;
+  padding: 0 11px;
+}
+
+.editorBody textarea {
+  min-height: 90px;
+  padding: 10px 11px;
+  resize: vertical;
+}
+
+.twoColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.switchRows {
+  display: grid;
+  gap: 8px;
+}
+
+.switchRows label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border: 1px solid #e1dbd1;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.switchRows strong,
+.switchRows span {
+  display: block;
+}
+
+.switchRows strong {
+  font-size: 0.67rem;
+}
+
+.switchRows span {
+  margin-top: 3px;
+  color: #928b81;
+  font-size: 0.56rem;
+}
+
+.switchRows input {
+  width: 18px;
+  height: 18px;
+  accent-color: #db6634;
+}
+
+.optionsBuilder {
+  display: grid;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.optionsBuilderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.optionsBuilderHeader span,
+.optionsBuilderHeader strong {
+  display: block;
+}
+
+.optionsBuilderHeader span {
+  color: #cf6335;
+  text-transform: uppercase;
+  font-size: 0.52rem;
+  font-weight: 850;
+}
+
+.optionsBuilderHeader strong {
+  margin-top: 2px;
+  font-size: 0.72rem;
+}
+
+.optionsBuilderHeader button,
+.addChoiceButton {
+  padding: 8px 10px;
+  border: 1px solid #ddd6cb;
+  border-radius: 9px;
+  color: #5b554d;
+  background: #fff;
+  font-size: 0.58rem;
+  font-weight: 800;
+}
+
+.noOptions {
+  padding: 18px;
+  border: 1px dashed #d8d1c7;
+  border-radius: 12px;
+  color: #918a80;
+  background: #fff;
+  font-size: 0.61rem;
+  line-height: 1.45;
+}
+
+.optionEditor {
+  padding: 13px;
+  border: 1px solid #ddd7cd;
+  border-radius: 14px;
+  background: #f4f0ea;
+}
+
+.optionEditorTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+
+.optionEditorTop strong {
+  font-size: 0.64rem;
+}
+
+.optionEditorTop button {
+  border: 0;
+  color: #a44b30;
+  background: transparent;
+  font-size: 0.55rem;
+  font-weight: 800;
+}
+
+.optionFlags {
+  display: flex;
+  gap: 14px;
+  margin: 9px 0;
+}
+
+.optionFlags label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #69635b;
+  font-size: 0.56rem;
+  font-weight: 700;
+}
+
+.optionFlags input {
+  width: 15px;
+  height: 15px;
+}
+
+.choiceList {
+  display: grid;
+  gap: 7px;
+}
+
+.choiceRow {
+  display: grid;
+  grid-template-columns: 1fr 92px 32px;
+  gap: 7px;
+}
+
+.choiceRow button {
+  border: 0;
+  border-radius: 9px;
+  color: #9d452e;
+  background: #ffe9e1;
+  font-size: 0.9rem;
+}
+
+.addChoiceButton {
+  margin-top: 8px;
+}
+
+.message {
+  padding: 10px 11px;
+  border-radius: 10px;
+  color: #356344;
+  background: #eaf5ed;
+  font-size: 0.6rem;
+  font-weight: 750;
+}
+
+.editorFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: auto;
+  padding: 13px 18px max(13px, env(safe-area-inset-bottom));
+  border-top: 1px solid #e1dbd1;
+  background: #fff;
+}
+
+.editorFooter button {
+  padding: 10px 13px;
+  border: 1px solid #ddd7cd;
+  border-radius: 10px;
+  color: #625d55;
+  background: #fff;
+  font-size: 0.64rem;
+  font-weight: 800;
+}
+
+.saveButton {
+  border-color: #1d1c18 !important;
+  color: #fff !important;
+  background: #1d1c18 !important;
+}
+
+.categoryBackdrop {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.categoryDialog {
+  width: min(100%, 390px);
+  padding: 20px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+}
+
+.categoryDialog h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.categoryDialog p {
+  margin: 6px 0 14px;
+  color: #8c857b;
+  font-size: 0.62rem;
+}
+
+.categoryDialog input {
+  width: 100%;
+  height: 42px;
+  padding: 0 11px;
+  border: 1px solid #ddd6cc;
+  border-radius: 10px;
+  outline: none;
+  font: inherit;
+  font-size: 0.68rem;
+}
+
+.categoryDialog > div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.categoryDialog button {
+  padding: 9px 11px;
+  border: 1px solid #ddd6cc;
+  border-radius: 9px;
+  background: #fff;
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.categoryDialog button:last-child {
+  color: #fff;
+  border-color: #1d1c18;
+  background: #1d1c18;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    padding: 12px;
+  }
+
+  .brand {
+    padding-bottom: 12px;
+  }
+
+  .nav {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .navItem {
+    flex: 0 0 auto;
+  }
+
+  .content {
+    padding: 18px 14px 28px;
+  }
+
+  .topbar {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .twoColumns {
+    grid-template-columns: 1fr;
+  }
+
+  .choiceRow {
+    grid-template-columns: 1fr 80px 32px;
+  }
+}

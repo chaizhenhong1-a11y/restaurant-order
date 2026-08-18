@@ -1,0 +1,224 @@
+.page {
+  width: min(100%, 560px);
+  min-height: 100dvh;
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  margin: 0 auto;
+  padding: 22px 18px 40px;
+}
+
+.successCard,
+.statusCard,
+.summaryCard {
+  border: 1px solid #e6e0d6;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 34px rgba(59, 49, 35, 0.05);
+}
+
+.successCard {
+  padding: 28px 20px 20px;
+  text-align: center;
+}
+
+.successIcon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  border-radius: 18px;
+  color: #fff;
+  background: #2f8b52;
+  font-size: 1.45rem;
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(47, 139, 82, 0.2);
+}
+
+.eyebrow {
+  margin: 0 0 5px;
+  color: #d46132;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-size: 0.6rem;
+  font-weight: 850;
+}
+
+.successCard h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  letter-spacing: -0.045em;
+}
+
+.successCard > p:not(.eyebrow) {
+  max-width: 390px;
+  margin: 10px auto 0;
+  color: #817a70;
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.orderMeta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #ebe5db;
+}
+
+.orderMeta span,
+.orderMeta strong {
+  display: block;
+}
+
+.orderMeta span {
+  color: #9b9489;
+  font-size: 0.56rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.orderMeta strong {
+  margin-top: 4px;
+  font-size: 0.76rem;
+}
+
+.statusCard,
+.summaryCard {
+  padding: 18px;
+}
+
+.cardHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.cardHeading h2 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: -0.03em;
+}
+
+.cardHeading > span {
+  color: #9a9389;
+  font-size: 0.6rem;
+}
+
+.timeline {
+  display: grid;
+  margin-top: 18px;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 11px;
+  min-height: 72px;
+}
+
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 33px;
+  bottom: 0;
+  left: 16px;
+  width: 2px;
+  background: #e5dfd6;
+}
+
+.stepDot {
+  position: relative;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #ddd7ce;
+  border-radius: 999px;
+  color: #9e978e;
+  background: #fff;
+  font-size: 0.65rem;
+  font-weight: 900;
+}
+
+.stepDotActive {
+  border-color: #2f8b52;
+  color: #fff;
+  background: #2f8b52;
+}
+
+.stepBody {
+  padding-top: 1px;
+}
+
+.stepBody h3 {
+  margin: 0;
+  font-size: 0.76rem;
+}
+
+.stepBody p {
+  margin: 4px 0 0;
+  color: #918a80;
+  font-size: 0.63rem;
+  line-height: 1.4;
+}
+
+.orderLines {
+  display: grid;
+  margin-top: 14px;
+}
+
+.orderLine {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 9px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee8df;
+}
+
+.orderLine:last-child {
+  border-bottom: 0;
+}
+
+.orderLine > span {
+  color: #d15f30;
+  font-size: 0.66rem;
+  font-weight: 850;
+}
+
+.orderLine strong {
+  font-size: 0.7rem;
+}
+
+.orderLine p {
+  margin: 4px 0 0;
+  color: #958e84;
+  font-size: 0.6rem;
+  line-height: 1.35;
+}
+
+.newOrderButton {
+  width: 100%;
+  padding: 14px;
+  border: 0;
+  border-radius: 15px;
+  color: #fff;
+  background: #1c1b18;
+  font-size: 0.75rem;
+  font-weight: 850;
+}
+
+.demoNotice {
+  margin: 0;
+  padding: 0 8px;
+  color: #aaa399;
+  text-align: center;
+  font-size: 0.58rem;
+  line-height: 1.45;
+}

@@ -1,0 +1,152 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PREPARING
+  READY
+  SERVED
+  CANCELLED
+}
+
+enum TableStatus {
+  AVAILABLE
+  OCCUPIED
+  DISABLED
+}
+
+model Restaurant {
+  id          String     @id @default(cuid())
+  name        String
+  slug        String     @unique
+  description String?
+  currency    String     @default("MYR")
+  isOpen      Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  categories  Category[]
+  menuItems   MenuItem[]
+  tables      DiningTable[]
+  orders      Order[]
+}
+
+model Category {
+  id           String     @id @default(cuid())
+  name         String
+  slug         String
+  sortOrder    Int        @default(0)
+  isActive     Boolean    @default(true)
+  restaurantId String
+
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  menuItems    MenuItem[]
+
+  @@unique([restaurantId, slug])
+  @@index([restaurantId, sortOrder])
+}
+
+model MenuItem {
+  id           String            @id @default(cuid())
+  name         String
+  description  String?
+  imageUrl     String?
+  price        Decimal           @db.Decimal(10, 2)
+  isAvailable  Boolean           @default(true)
+  isPopular    Boolean           @default(false)
+  sortOrder    Int               @default(0)
+  restaurantId String
+  categoryId   String
+
+  restaurant   Restaurant        @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  category     Category          @relation(fields: [categoryId], references: [id])
+  optionGroups MenuOptionGroup[]
+  orderItems   OrderItem[]
+
+  @@index([restaurantId, isAvailable])
+  @@index([categoryId, sortOrder])
+}
+
+model MenuOptionGroup {
+  id         String             @id
+  label      String
+  required   Boolean            @default(false)
+  multiple   Boolean            @default(false)
+  sortOrder  Int                @default(0)
+  menuItemId String
+
+  menuItem   MenuItem           @relation(fields: [menuItemId], references: [id], onDelete: Cascade)
+  choices    MenuOptionChoice[]
+
+  @@index([menuItemId, sortOrder])
+}
+
+model MenuOptionChoice {
+  id         String          @id
+  label      String
+  priceDelta Decimal         @default(0) @db.Decimal(10, 2)
+  sortOrder  Int             @default(0)
+  groupId    String
+
+  group      MenuOptionGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  @@index([groupId, sortOrder])
+}
+
+model DiningTable {
+  id           String      @id @default(cuid())
+  code         String
+  qrToken      String      @unique @default(cuid())
+  status       TableStatus @default(AVAILABLE)
+  restaurantId String
+
+  restaurant   Restaurant  @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  orders       Order[]
+
+  @@unique([restaurantId, code])
+  @@index([restaurantId, status])
+}
+
+model Order {
+  id           String      @id @default(cuid())
+  orderNumber  String      @unique
+  status       OrderStatus @default(CONFIRMED)
+  customerName String?
+  note         String?
+  subtotal     Decimal     @db.Decimal(10, 2)
+  total        Decimal     @db.Decimal(10, 2)
+  restaurantId String
+  tableId      String
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  restaurant   Restaurant  @relation(fields: [restaurantId], references: [id])
+  table        DiningTable @relation(fields: [tableId], references: [id])
+  items        OrderItem[]
+
+  @@index([restaurantId, status, createdAt])
+  @@index([tableId, createdAt])
+}
+
+model OrderItem {
+  id         String   @id @default(cuid())
+  name       String
+  unitPrice  Decimal  @db.Decimal(10, 2)
+  quantity   Int
+  note       String?
+  selections Json
+  orderId    String
+  menuItemId String?
+
+  order      Order     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  menuItem   MenuItem? @relation(fields: [menuItemId], references: [id], onDelete: SetNull)
+
+  @@index([orderId])
+}
